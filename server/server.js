@@ -2,6 +2,7 @@ const express = require('express')
 const dotenv = require('dotenv')
 const colors = require('colors')
 const connectDB = require('./config/db')
+const path = require('path')
 
 // Use dot env
 
@@ -52,6 +53,15 @@ const PORT = process.env.ENV_PORT || 5000
 app.use('/api/users', require('./routes/users'))
 app.use('/api/auth', require('./routes/auth'))
 app.use('/api/contacts', require('./routes/contacts'))
+
+if (process.env.NODE_ENV === 'production') {
+  // Set Static Folder
+  app.use(express.static('client/dist'))
+
+  app.get('*', (req, res) =>
+    res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'))
+  )
+}
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}!`)
