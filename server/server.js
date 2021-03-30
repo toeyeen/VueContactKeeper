@@ -61,7 +61,7 @@ app.use('/api/contacts', require('./routes/contacts'))
 // app.get('*', (req, res) =>
 //   res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'))
 // )
-
+// Set Static folder
 app.use(express.static('../client/dist'))
 app.get('*', (req, res) =>
   res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'))
