@@ -8,7 +8,7 @@
         <input
           type="text"
           placeholder="Enter Name"
-          class="w-full p-2 border rounded-md focus:bsorder-gray-500"
+          class="w-full p-2 border rounded-md focus:border-gray-500"
           v-model="name"
           :class="[$v.name.$error ? 'border-red-500' : 'border-gray-400']"
           @blur="$v.name.$touch()"
