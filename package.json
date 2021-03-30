@@ -9,7 +9,7 @@
     "client": "npm start serve",
     "clientinstall": "npm install client",
     "dev": "concurrently \"nodemon server/server.js\" \"cd client && npm run serve\"",
-    "heroku-postbuild": "npm install --prefix client --only=dev  && npm run build --prefix client"
+    "heroku-postbuild": "npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "author": "Toyin Jolaoso",
   "license": "MIT",
