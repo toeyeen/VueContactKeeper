@@ -64,12 +64,11 @@ app.use('/api/contacts', require('./routes/contacts'))
 //   )
 // }
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(serveStatic(__dirname + '/dist'))
-  app.get('*', (req, res) =>
-    res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'))
-  )
-}
+app.use(serveStatic(__dirname + 'client/dist'))
+app.get('*', (req, res) =>
+  res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'))
+)
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}!`)
 })
