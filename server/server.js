@@ -55,16 +55,15 @@ app.use('/api/users', require('./routes/users'))
 app.use('/api/auth', require('./routes/auth'))
 app.use('/api/contacts', require('./routes/contacts'))
 
-// if (process.env.NODE_ENV === 'production') {
-//   // Set Static Folder
-//   app.use(express.static('client/dist'))
+// Set Static Folder
+// app.use(express.static('client/dist'))
 
-//   app.get('*', (req, res) =>
-//     res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'))
-//   )
-// }
+// app.get('*', (req, res) =>
+//   res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'))
+// )
 
-app.use(serveStatic(__dirname + 'client/dist'))
+// if (process.env.NODE_ENV === 'development') {
+app.use(express.static('client/dist'))
 app.get('*', (req, res) =>
   res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'))
 )
