@@ -9,7 +9,7 @@
     "client": "npm start serve",
     "clientinstall": "npm install client",
     "dev": "concurrently \"nodemon server/server.js\" \"cd client && npm run serve\"",
-    "heroku-postbuild": "npm install --only=dev --no-shrinkwrap && npm run build"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client --prefix client && npm run build --prefix client"
   },
   "author": "Toyin Jolaoso",
   "license": "MIT",
@@ -24,7 +24,6 @@
     "mongoose": "^5.11.15"
   },
   "devDependencies": {
-    "@vue/babel-preset-app": "^4.5.12",
     "concurrently": "^6.0.0",
     "nodemon": "^2.0.7"
   }
